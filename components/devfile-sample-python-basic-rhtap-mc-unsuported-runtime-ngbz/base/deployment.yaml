@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-sample-python-basic-rhtap-mc-unsuported-runtime-ngbz
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-sample-python-basic-rhtap-mc-unsuported-runtime-ngbz
+    app.kubernetes.io/part-of: mc-unsupported-runtime
+  name: devfile-sample-python-basic-rhtap-mc-unsuported-runtime-ngbz
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: python-app
+      app.kubernetes.io/instance: devfile-sample-python-basic-rhtap-mc-unsuported-runtime-ngbz
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: python-app
+        app.kubernetes.io/instance: devfile-sample-python-basic-rhtap-mc-unsuported-runtime-ngbz
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/rhtap-demo-fbqb-tenant/mc-unsupported-runtime/devfile-sample-python-basic-rhtap-mc-unsuported-runtime-ngbz@sha256:8830279fa3c1835abd84256db7870271681faa53c9e9c626c5e3519e4365be63
+        name: my-python
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
